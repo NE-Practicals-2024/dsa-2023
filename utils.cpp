@@ -151,13 +151,20 @@ void help()
     cout << "help - Shows this help message\n";
 }
 
+string toLowerCase(const string &str)
+{
+    string lowerStr = str;
+    transform(lowerStr.begin(), lowerStr.end(), lowerStr.begin(), ::tolower);
+    return lowerStr;
+}
+
 void processCommand(const string &input)
 {
     istringstream iss(input);
     string command;
     iss >> command;
 
-    if (command == "itemadd")
+    if (toLowerCase(command) == "itemadd")
     {
         Item item;
         string dateString;
@@ -177,16 +184,16 @@ void processCommand(const string &input)
             cerr << "Invalid arguments for itemadd command.\n";
         }
     }
-    else if (command == "itemslist")
+    else if (toLowerCase(command) == "itemslist")
     {
         cout << "Listing items...\n";
         listItems();
     }
-    else if (command == "help")
+    else if (toLowerCase(command) == "help")
     {
         help();
     }
-    else if (command == "exit")
+    else if (toLowerCase(command) == "exit")
     {
         cout << "Exiting program..." << endl;
         exit(0);
