@@ -134,16 +134,18 @@ void listItems()
     file.close();
     for (const auto &item : items)
     {
-        cout << "ID: " << item.id
-             << ", Name: " << item.name
-             << ", Quantity: " << item.quantity
-             << ", Registration Date: " << item.regDate << endl;
+        cout << "Item ID: " << item.id
+             << "\t Item Name: " << item.name
+             << "\t Quantity: " << item.quantity
+             << "\t Reg Date: " << item.regDate << endl;
     }
 }
 
 void help()
 {
-    cout << "Help:\n";
+    cout << "---------------------------------------------------" << endl;
+    cout << "*                 Command syntaxes                *" << endl;
+    cout << "---------------------------------------------------" << endl;
     cout << "itemadd <item_id> <item_name> <quantity> <registration_date> - Adds an item\n";
     cout << "itemslist - Lists all items\n";
     cout << "help - Shows this help message\n";
@@ -183,6 +185,11 @@ void processCommand(const string &input)
     else if (command == "help")
     {
         help();
+    }
+    else if (command == "exit")
+    {
+        cout << "Exiting program..." << endl;
+        exit(0);
     }
     else
     {

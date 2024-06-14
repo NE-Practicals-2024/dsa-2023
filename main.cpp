@@ -24,7 +24,7 @@ int main()
         cout << ">> ";
         if (!getline(cin, input))
         {
-            break; // Exit if there's no more input
+            break;
         }
         processCommand(input);
     }
